@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🚀 Kelas 8A - Space</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, #263b75 0, transparent 20%),
+        radial-gradient(circle at 80% 70%, #40135f 0, transparent 25%),
+        #050816;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* BINTANG */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#8bb8ff 1px, transparent 1px);
+    background-size: 70px 70px, 110px 110px;
+    background-position: 10px 20px, 40px 60px;
+    opacity: .5;
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 70px 20px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 45px;
+    color: #8bd3ff;
+    text-shadow: 0 0 15px #168cff;
+}
+
+header p {
+    margin-top: 15px;
+    color: #dbeafe;
+    font-size: 18px;
+}
+
+/* PLANET */
+.planet {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    margin: 30px auto;
+    box-shadow:
+        0 0 20px #a855f7,
+        0 0 60px #7c3aed;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgba(3,7,25,.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #334155;
+}
+
+nav a {
+    color: #dbeafe;
+    text-decoration: none;
+    padding: 16px 18px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #67e8f9;
+    background: rgba(37,99,235,.3);
+}
+
+/* CONTAINER */
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #67e8f9;
+    text-shadow: 0 0 10px #0891b2;
+}
+
+/* CARD */
+.card {
+    background: rgba(15,23,42,.75);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(59,130,246,.15);
+    backdrop-filter: blur(8px);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+    box-shadow: 0 0 25px rgba(56,189,248,.3);
+}
+
+/* STRUKTUR */
+.struktur {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+    gap: 20px;
+}
+
+.struktur .card {
+    text-align: center;
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.struktur h3 {
+    color: #93c5fd;
+    margin-bottom: 10px;
+}
+
+/* DAFTAR SISWA */
+.siswa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 15px;
+}
+
+.siswa .card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nomor {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#2563eb,#7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px #2563eb;
+}
+
+/* TABEL PIKET */
+.table-box {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(15,23,42,.8);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th {
+    background: #1e3a8a;
+    color: #bae6fd;
+    padding: 16px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+tr:hover {
+    background: rgba(59,130,246,.15);
+}
+
+/* FOTO */
+.foto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.foto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid #334155;
+    transition: .4s;
+}
+
+.foto img:hover {
+    transform: scale(1.04);
+    border-color: #38bdf8;
+    box-shadow: 0 0 25px #2563eb;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px;
+    background: rgba(2,6,23,.9);
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+
+    header {
+        padding: 50px 15px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 12px 9px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="planet"></div>
+
+    <h1>🚀 KELAS 8A</h1>
+
+    <p>
+        🌌 Selamat datang di markas luar angkasa kelas kami 🌌
+    </p>
+
+</header>
+
+
+<!-- MENU -->
+<nav>
+
+    <a href="#struktur">🧑‍🚀 Struktur</a>
+
+    <a href="#siswa">👨‍🚀 Absen</a>
+
+   <a href="#pelajaran">📚 Jadwal pelajaran</a>
+
+    <a href="#piket">🧹 Piket</a>
+
+    <a href="#foto">📸 Foto</a>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- ========================= -->
+<!-- 1. STRUKTUR KELAS -->
+<!-- ========================= -->
+
+<section id="struktur">
+
+<h2>🪐 Struktur Kelas</h2>
+
+<div class="struktur">
+
+<div class="card">
+        <div class="icon">👨‍🏫</div>
+        <h3>Wali Kelas</h3>
+        <p>M. Arif Wicaksons S.P.D</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">👑</div>
+        <h3>Ketua Kelas</h3>
+        <p>Rehansyah Setiawan</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Wakil Ketua</h3>
+        <p>Faizal Pandu P.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📡</div>
+        <h3>Sekretaris</h3>
+        <p>Nabila Fauziatul l</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">💰</div>
+        <h3>Bendahara 1 </h3>
+        <p>Naira Azzahra P.</p>
+    </div>
+
+ <div class="card">
+       <div class="icon">💰</div>
+       <h3>Bendahara 2 </h3>
+        <p>Yuanda Eliza S.</p>
+   </div>  
+  
+  <div class="card">
+       <div class="icon">🎉</div>
+       <h3>Seksi Acara</h3>
+       <P>Maulana Rafa A.</P>
+    </div>
+  
+  <div class="card">
+       <div class="icon">🧹</div>
+       <h3>Seksi Kebersihan</h3>
+       <P>Muftlif Fahtin Akbar</P>
+   </div>
+  
+  <div class="card">
+       <div class="icon">⚽</div>
+       <h3>Seksi Olahraga</h3>
+       <p>Alvin Galih A.</p>
+   </div>
+  
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- 2. DAFTAR ABSEN 32 -->
+<!-- ========================= -->
+
+<section id="siswa">
+
+<h2>👨‍🚀 Daftar Kru Kelas — 32 Siswa</h2>
+
+<div class="siswa">
+
+    <div class="card"><div class="nomor">01</div>Nama Siswa 01</div>
+    <div class="card"><div class="nomor">02</div>Nama Siswa 02</div>
+    <div class="card"><div class="nomor">03</div>Nama Siswa 03</div>
+    <div class="card"><div class="nomor">04</div>Nama Siswa 04</div>
+    <div class="card"><div class="nomor">05</div>Nama Siswa 05</div>
+    <div class="card"><div class="nomor">06</div>Nama Siswa 06</div>
+    <div class="card"><div class="nomor">07</div>Nama Siswa 07</div>
+    <div class="card"><div class="nomor">08</div>Nama Siswa 08</div>
+    <div class="card"><div class="nomor">09</div>Nama Siswa 09</div>
+    <div class="card"><div class="nomor">10</div>Nama Siswa 10</div>
+    <div class="card"><div class="nomor">11</div>Nama Siswa 11</div>
+    <div class="card"><div class="nomor">12</div>Nama Siswa 12</div>
+    <div class="card"><div class="nomor">13</div>Nama Siswa 13</div>
+    <div class="card"><div class="nomor">14</div>Nama Siswa 14</div>
+    <div class="card"><div class="nomor">15</div>Nama Siswa 15</div>
+    <div class="card"><div class="nomor">16</div>Nama Siswa 16</div>
+    <div class="card"><div class="nomor">17</div>Nama Siswa 17</div>
+    <div class="card"><div class="nomor">18</div>Nama Siswa 18</div>
+    <div class="card"><div class="nomor">19</div>Nama Siswa 19</div>
+    <div class="card"><div class="nomor">20</div>Nama Siswa 20</div>
+    <div class="card"><div class="nomor">21</div>Nama Siswa 21</div>
+    <div class="card"><div class="nomor">22</div>Nama Siswa 22</div>
+    <div class="card"><div class="nomor">23</div>Nama Siswa 23</div>
+    <div class="card"><div class="nomor">24</div>Nama Siswa 24</div>
+    <div class="card"><div class="nomor">25</div>Nama Siswa 25</div>
+    <div class="card"><div class="nomor">26</div>Nama Siswa 26</div>
+    <div class="card"><div class="nomor">27</div>Nama Siswa 27</div>
+    <div class="card"><div class="nomor">28</div>Nama Siswa 28</div>
+    <div class="card"><div class="nomor">29</div>Nama Siswa 29</div>
+    <div class="card"><div class="nomor">30</div>Nama Siswa 30</div>
+    <div class="card"><div class="nomor">31</div>Nama Siswa 31</div>
+    <div class="card"><div class="nomor">32</div>Nama Siswa 32</div>
+
+</div>
+
+</section>
+
+
+<section id="pelajaran">
+
+    <h2>📚 Jadwal Pelajaran 🚀</h2>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Hari</th>
+                <th>Jam Ke</th>
+                <th>Mata Pelajaran</th>
+            </tr>
+
+            <!-- SENIN -->
+            <tr>
+                <td rowspan="8">🌙 Senin</td>
+                <td>1</td>
+                <td>B.Jawa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>B.Jawa</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Prakarya</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Prakarya</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Prakarya</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>B.Indonesia</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>B.Indonesia</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td> - </td>
+
+
+
+            <!-- SELASA -->
+            <tr>
+                <td rowspan="8">⭐ Selasa</td>
+                <td>1</td>
+                <td>Matematika</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Matematika</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Matematika</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>PPKN</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>PPKN</td>
+            </tr>
+            <tr>
+                <td>6</td>
+              <td>PPKN</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>IPA</td>
+            </tr>
+
+
+            <!-- RABU -->
+            <tr>
+                <td rowspan="8">🪐 Rabu</td>
+                <td>1</td>
+                <td>IPS</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>IPS</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>BK</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>B. Inggris</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>B. Inggris</td>
+            </tr>
+
+
+            <!-- KAMIS -->
+            <tr>
+                <td rowspan="8">🚀 Kamis</td>
+                <td>1</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>PAI</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>PAI</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>PJOK</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>PJOk</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>PJOK</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>B.Inggris</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>B.Inggris</td>
+            </tr>
+
+
+            <!-- JUMAT -->
+            <tr>
+                <td rowspan="8">🌌 Jumat</td>
+                <td>1</td>
+                <td>MTK</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>IPS</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>IPS</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>IPA</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>-</td>
+            </tr>
+
+
+             <!-- SABTU -->
+<tr>
+    <td rowspan="8">☀️ Sabtu</td>
+    <td>1</td>
+    <td>B.Inggris</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>B.Inggris</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Informatika</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>Informatika</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>Informatika</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>IPA</td>
+</tr>
+<tr>
+    <td>7</td>
+    <td>IPA</td>
+</tr>
+<tr>
+    <td>8</td>
+    <td>-</td>
+</tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- 3. JADWAL PIKET -->
+<!-- ========================= -->
+
+<section id="piket">
+
+<h2>🧹 Jadwal Piket</h2>
+
+<div class="table-box">
+
+<table>
+
+<tr>
+    <th>Hari</th>
+    <th>Anggota Piket</th>
+</tr>
+
+<tr>
+    <td>🌙 Senin</td>
+    <td>Nichen, Dnda, Adi, Riqi, Rakan, Avandi</td>
+</tr>
+
+<tr>
+    <td>⭐ Selasa</td>
+    <td>Naira, Nabila, Ulum, Rehan, Nauval</td>
+</tr>
+
+<tr>
+    <td>🪐 Rabu</td>
+    <td>Fika, Pandu, Zidan, Hunafa, Ulil</td>
+</tr>
+
+<tr>
+    <td>🚀 Kamis</td>
+    <td>Yuanda, Vina, Lana, Lutfi, Fahmi,</td>
+</tr>
+
+<tr>
+    <td>🌌 Jumat</td>
+    <td>Bareng-Bareng</td>
+</tr>
+
+<tr>
+    <td>☄️ Sabtu</td>
+    <td>Qamara, Alsya, Akbar, Adnan, Ilul</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- 4. FOTO KELAS -->
+<!-- ========================= -->
+
+<section id="foto">
+
+<h2>📸 Galeri Kelas</h2>
+
+<div class="foto">
+
+    <img src="foto1.jpg" onclick="bukaFoto(this.src)" alt="Foto Kelas 1">
+
+    <img src="foto2.jpg" onclick="bukaFoto(this.src)" alt="Foto Kelas 2">
+
+    <img src="foto3.jpg" onclick="bukaFoto(this.src)" alt="Foto Kelas 3">
+
+    <img src="foto4.jpg" onclick="bukaFoto(this.src)" alt="Foto Kelas 4">
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>🚀 © 2026 Kelas 8A</p>
+
+    <p>
+        🌌 Together We Explore The Universe 🌌
+    </p>
+
+<p>Di buat oleh </p>
+
+</footer>
+
+
+</body>
+</html>
